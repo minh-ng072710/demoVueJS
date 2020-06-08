@@ -1,8 +1,12 @@
 <template>
-    <el-popover placement="bottom" title="Edit Employee" width="200" trigger="click">
-      <el-input placeholder="John Doe" v-model="name" @blur="updateEmployee(id, name, date)"></el-input>
-      <el-button size="mini" slot="reference">Edit</el-button>
-    </el-popover>
+  <el-popover placement="bottom" title="Edit Employee" width="200" trigger="click">
+    <el-input
+      placeholder="John Doe"
+      v-model="name"
+      @keyup.enter.native="updateEmployee(id, name, date)"
+    ></el-input>
+    <el-button size="mini" slot="reference">Edit</el-button>
+  </el-popover>
 </template>
 
 <script>
@@ -11,11 +15,11 @@ const db = firebase.firestore();
 
 export default {
   name: "UpdateItems",
-  props: { 
+  props: {
     id: Object,
     name: Object,
     date: Object,
-    callBack: Object,
+    callBack: Object
   },
   methods: {
     updateEmployee(id, name, date) {
@@ -26,8 +30,8 @@ export default {
           date: date
         })
         .then(() => {
-          console.log("Document successfully updated!");
-          this.callBack() 
+          alert("Cập nhật thành công!");
+          this.callBack();
         })
         .catch(error => {
           // The document probably doesn't exist.

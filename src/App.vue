@@ -7,6 +7,6 @@ import Items from "./components/Items";
 export default {
   components: {
     Items
-  },
+  }
 };
 </script>

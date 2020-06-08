@@ -13,8 +13,14 @@
       <el-table-column label="Date" prop="date"></el-table-column>
       <el-table-column label="Name" prop="name"></el-table-column>
       <el-table-column align="right">
-        <template slot="header" :slot-scope="scope">
-          <el-input v-model="search" size="mini" placeholder="Type to search" />
+        <template slot="header">
+          <input
+            :class="custumize"
+            type="text"
+            size="mini"
+            v-model="search"
+            placeholder="Nhập từ khóa cần tìm...."
+          />
         </template>
         <template slot-scope="scope">
           <UpdateItems
@@ -29,6 +35,11 @@
     </el-table>
   </div>
 </template>
+<style>
+.new-style {
+  width: 302px;
+}
+</style>
 <script>
 import firebase from "../configuration/firebaseConfig";
 import AddItems from "./AddItems";
@@ -47,7 +58,8 @@ export default {
       name: "",
       date: new Date().toISOString().slice(0, 10),
       employeesData: [],
-      search: ""
+      search: "",
+      custumize: "new-style"
     };
   },
   methods: {
@@ -73,7 +85,7 @@ export default {
         });
     }
   },
-  mounted() {
+  created() {
     this.readEmployees();
   }
 };
