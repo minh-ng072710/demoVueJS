@@ -45,13 +45,16 @@ import firebase from "../configuration/firebaseConfig";
 import AddItems from "./AddItems";
 import UpdateItems from "./UpdateItems";
 import DeleteItems from "./DeleteItems";
+import testVue from "../test.vue";
+
 const db = firebase.firestore();
 
 export default {
   components: {
     AddItems,
     UpdateItems,
-    DeleteItems
+    DeleteItems,
+    testVue
   },
   data() {
     return {

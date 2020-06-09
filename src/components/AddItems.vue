@@ -2,15 +2,20 @@
   <div>
     <el-popover placement="bottom" title="New Employee" width="200" trigger="click">
       <el-input
-        placeholder="Hưng đẹp trai hai mái"
+        :class="keke"
+        placeholder="Gia Minh Khoai To Đẹp Giai."
         v-model="name"
-        @blur="createEmployee(name, date)"
+        @keyup.enter.native="createEmployee(name, date)"
       ></el-input>
       <el-button round slot="reference" type="success">Add New Employee</el-button>
     </el-popover>
   </div>
 </template>
-
+<style>
+.new-style-item {
+  width: "212px" !important;
+}
+</style>
 <script>
 import firebase from "../configuration/firebaseConfig";
 const db = firebase.firestore();
@@ -25,7 +30,8 @@ export default {
   data() {
     return {
       name: "",
-      date: new Date().toISOString().slice(0, 10)
+      date: new Date().toISOString().slice(0, 10),
+      keke: "new-style-item"
     };
   },
   methods: {

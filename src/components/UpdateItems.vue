@@ -12,9 +12,9 @@
 <script>
 import firebase from "../configuration/firebaseConfig";
 const db = firebase.firestore();
-
 export default {
   name: "UpdateItems",
+
   props: {
     id: Object,
     name: Object,
