@@ -33,6 +33,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- <testVue /> -->
   </div>
 </template>
 <style>
@@ -40,12 +41,20 @@
   width: 302px;
 }
 </style>
+
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>
 <script>
 import firebase from "../configuration/firebaseConfig";
 import AddItems from "./AddItems";
 import UpdateItems from "./UpdateItems";
 import DeleteItems from "./DeleteItems";
-import testVue from "../test.vue";
+// import testVue from "../test.vue";
 
 const db = firebase.firestore();
 
@@ -53,8 +62,8 @@ export default {
   components: {
     AddItems,
     UpdateItems,
-    DeleteItems,
-    testVue
+    DeleteItems
+    // testVue
   },
   data() {
     return {
